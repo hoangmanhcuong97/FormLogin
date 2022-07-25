@@ -14,6 +14,8 @@ public class Account {
     private String email;
     private String name;
     private String password;
+
+    private String re_password;
     private String age;
 
     public Long getIdUser() {
@@ -54,5 +56,13 @@ public class Account {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public String getRe_password() {
+        return re_password;
+    }
+
+    public void setRe_password(String re_password) {
+        this.re_password = re_password;
     }
 }
