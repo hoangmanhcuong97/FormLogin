@@ -19,30 +19,40 @@
         <h4 class="card-title mt-3 text-center">Create Account</h4>
         <p class="text-center">Get started with your free account</p>
         <form th:action="@{/register}" th:object="${FormSingUp}" method="post" id="sing-up">
+
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                 </div>
-                <input id="username" class="form-control" placeholder="Full name" type="text" th:field="*{name}">
+                <input id="username" class="form-control" style="width: 260px" placeholder="Full name" type="text" th:field="*{name}">
+                <br>
+                <span class="form-message" style="color: red; font-size: 10px"></span>
             </div> <!-- form-group// -->
+
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                 </div>
-                <input id="email" class="form-control" placeholder="Email address" type="email" th:field="*{email}">
+                <input id="email" class="form-control" style="width: 260px" placeholder="Email address" type="email" th:field="*{email}">
+                <span class="form-message" style="color: red; font-size: 10px"></span>
             </div> <!-- form-group// -->
+
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input id="password" class="form-control" placeholder="Create password" type="password" th:field="*{password}">
+                <input id="password" class="form-control" style="width: 260px" placeholder="Create password" type="password" th:field="*{password}">
+                <span class="form-message" style="color: red; font-size: 10px"></span>
             </div> <!-- form-group// -->
+
             <div class="form-group input-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                 </div>
-                <input id="re-password" class="form-control" placeholder="Repeat password" type="password" th:field="*{re_password}">
+                <input id="re-password" class="form-control" style="width: 260px" placeholder="Repeat password" type="password" th:field="*{re_password}">
+                <span class="form-message" style="color: red; font-size: 10px"></span>
             </div> <!-- form-group// -->
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
             </div> <!-- form-group// -->
@@ -59,9 +69,11 @@
 <script>
     Validator({
         form: '#sing-up',
+        errorSelector: '.form-message',
         rules : [
             Validator.isRequired('#username'),
             Validator.isEmail('#email'),
+            Validator.minLength('#password', 6),
         ]
     });
 </script>
